@@ -54,3 +54,5 @@ body {
   display:flex;
   flex-wrap: wrap;
 }
+
+#mapid { height: 180px; }
