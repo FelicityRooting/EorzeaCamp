@@ -1,4 +1,5 @@
 //all middleware go here
+//start
 var Campground = require("../models/campground");
 var Comments = require("../models/comments");
 
