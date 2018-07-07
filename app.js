@@ -31,7 +31,7 @@ app.use(methodOverride("_method"));//我们需要为method-override提供一个k
 //this before the passport configuration in app.js
 app.use(flash());
 
-
+//start
 mongoose.connect("mongodb://localhost/yelp_camp");
 //Run the seed file everytime the server start
 seedDB(); //seed the database
