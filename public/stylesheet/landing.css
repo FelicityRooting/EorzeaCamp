@@ -40,14 +40,14 @@ body {
 }
 
 .slideshow li:nth-child(1) { 
-  background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+  background-image: url(http://blog-imgs-64.fc2.com/e/r/i/eritto/ffxiv_20140215_185520.jpg) 
 }
 .slideshow li:nth-child(2) { 
-  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  background-image: url(https://img2.finalfantasyxiv.com/accimg/7e/21/7e216c967f5dcb3583bc00aad4d9ec1d9c75c9c8.jpg);
   animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  background-image: url(https://img2.finalfantasyxiv.com/accimg/a0/a1/a0a1dee626b29a5a8f84bc74357e47ed0ff3df57.jpg);
   animation-delay: 20s; 
 }
 .slideshow li:nth-child(4) { 
