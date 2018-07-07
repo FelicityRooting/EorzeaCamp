@@ -7,7 +7,9 @@
     ----------------------------------------------------------------- 
 
 
-Welcome to your Node.js project on Cloud9 IDE!
+
+
+Welcome to your Node.js project on Cloud9 IDE!!!!
 
 This chat example showcases how to use `socket.io` with a static `express` server.
 
@@ -190,3 +192,4 @@ INDEX /dogs GET Display a list of all dogs NEW /dogs/new GET Displays form to ma
 INDEX /campgrounds NEW /campgrounds/new CREATE /campgrounds SHOW /campgrounds/:id
 
 NEW campgrounds/:id/comments/new GET CREATE campgrounds/:id/comments POST
+
