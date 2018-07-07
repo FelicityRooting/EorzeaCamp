@@ -34,7 +34,7 @@ app.use(flash());
 
 mongoose.connect("mongodb://localhost/yelp_camp");
 //Run the seed file everytime the server start
-seedDB(); //seed the database
+// seedDB(); //seed the database
 
 //passport configuration
 app.use(require("express-session") ({
