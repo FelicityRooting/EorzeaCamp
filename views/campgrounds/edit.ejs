@@ -2,6 +2,7 @@
 
 
 <!--用row和container把内容框起来可以适应响应式布局和不会占据整个页面-->
+<body background=<%= campground.image %>>
 <div class="row">
     <div class="container">
         <h1 style="text-align: center;">EDIT <%= campground.name %></h1>
@@ -27,9 +28,9 @@
                     <button class="btn btn-lg btn-primary btn-block">Submit</button>
                 </div>
             </form>
-        <a href="/campgrounds">Back to campgrounds</a>
+        <a href="/campgrounds"><trong>Back to campgrounds</strong></a>
         </div>
     </div>
 </div>
-
+</body>
 <% include ../partials/footer %>
