@@ -33,7 +33,9 @@ app.use(methodOverride("_method"));//我们需要为method-override提供一个k
 app.use(flash());
 
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+// mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://Final:PbnTo4wt3chJKk@ds129811.mlab.com:29811/eorzeacamp");
+
 //Run the seed file everytime the server start
 // seedDB(); //seed the database
 
