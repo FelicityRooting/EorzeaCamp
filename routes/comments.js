@@ -76,7 +76,7 @@ router.put("/:comment_id", middleware.checkCommentsOwnership, function(req, res)
     });
 });
 
-
+//for heroku
 //comments delete routes
 router.delete("/:comment_id", middleware.checkCommentsOwnership, function(req, res) {
     Comments.findByIdAndRemove(req.params.comment_id, function(err) {

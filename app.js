@@ -17,6 +17,7 @@ var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
 
+// for heroku
 
 //设置静态文件目录,将静态文件目录设置为项目根目录+/public
 //__dirname 表示当前文件所在的目录的绝对路径

@@ -20,7 +20,7 @@ router.get("/register", function(req, res){
    res.render("register", {page: 'register'}); 
 });
 
-
+//for heroku
 
 //handle sign up logic
 router.post("/register", function(req, res) {

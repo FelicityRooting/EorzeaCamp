@@ -5,6 +5,6 @@ var UserSchema = new mongoose.Schema({
     password: String
 });
 
-
+//for heroku
 UserSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model("User", UserSchema);

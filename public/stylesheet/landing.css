@@ -1,7 +1,7 @@
 body {
   background-color: #000;
 }
-
+/*for heroku*/
 #landing-header {
   z-index: 1;
   position: relative;

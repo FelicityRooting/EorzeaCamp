@@ -1,5 +1,7 @@
 var mongoose = require("mongoose");
- 
+
+
+//for heroku 
 var commentSchema = new mongoose.Schema({
     text: String,
     createdAt: { type: Date, default: Date.now },

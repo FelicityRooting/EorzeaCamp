@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-
+//for heroku
 //Schema setup
 var campgroundSchema = new mongoose.Schema({
     name: String,

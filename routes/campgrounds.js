@@ -19,7 +19,7 @@ var middleware = require("../middleware/index.js");
 //     })
 // });
 
-
+//for heroku
 router.get("/", function(req, res) {
     //get all campgrounds from db
     Campground.find({}, function(err, allCampgrounds) {
