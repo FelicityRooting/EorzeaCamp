@@ -21,11 +21,6 @@ var imageFilter = function (req, file, cb) {
 };
 var upload = multer({ storage: storage, fileFilter: imageFilter})
 
-// const process = require('process')
-// process.connect({
-//     api_key: process.env.CLOUDINARY_API_KEY,
-//     api_secret: process.env.CLOUDINARY_API_SECRET
-// })
 
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
