@@ -7,20 +7,20 @@
         <h1 style="text-align: center;">welcome to new cosplay form</h1>
         <!--让这个DIV的宽度为百分之30, margin为top是20px，其余的左右两边auto-->
         <div style="width: 30%; margin: 20px auto">
-            <form action="/cossite" method="POST">
+            <form action="/cossite" method="POST" enctype="multipart/form-data">
                 <!--form-group相当于段落标签,就是两个表单元素之间的间距变大了,即增加了margin-bottom-->
                 <div class="form-group">
                 <!--这里指向的是app.js里app.post("/campgrounds"), form-control控件，可以为input元素添加CSS定制样式-->
-                    <input class="form-control" type="text" placeholder="name" name="name">
+                    <input class="form-control" type="text" placeholder="name" name="cosimg[name]">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="oricos" name="oricos">
+                    <input class="form-control" type="text" placeholder="oricos" name="cosimg[oricos]">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="image url" name="image">
+                    <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="description" name="description">
+                    <input class="form-control" type="text" placeholder="description" name="cosimg[description]">
                 </div>
                 <div class="form-group">
                     <!--btn-block是块级按钮(拉伸至父元素100%的宽度)-->

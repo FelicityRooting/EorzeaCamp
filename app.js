@@ -1,9 +1,11 @@
 var express = require("express");//引入了 express 模块
 //require() 用于在当前模块中加载和使用其他模块；此方法是模块的基础，使用中大概有路径的概念就行。PS：JS文件可以去掉".js"后缀
 var app = express();//express() 表示创建express应用程序,app is an instance of express.
+require('dotenv').config();
 var passport = require("passport");
 var methodOverride = require("method-override");//增加除浏览器自带的get,post以外的伪请求，增加接口语义话
 var LocalStrategy = require("passport-local");
+
 //可以通过body-parser 对象创建中间件，当接收到客户端请求时所有的中间件都会给req.body 添加属性，请求体为空，则解析为空{} （或者出现错误）。
 var bodyParser =require('body-parser');
 var mongoose = require("mongoose");

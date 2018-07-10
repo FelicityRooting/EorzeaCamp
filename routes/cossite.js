@@ -2,6 +2,37 @@ var express = require("express");
 var router = express.Router();
 var Cossite = require("../models/cossite");
 var middleware = require("../middleware/index.js");
+var request = require("request");
+// require('dotenv').config();
+
+var multer = require('multer');
+var storage = multer.diskStorage({
+    
+    filename: function(req, file, callback) {
+        callback(null, Date.now() + file.originalname);
+    }
+});
+var imageFilter = function (req, file, cb) {
+    // accept image files only
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+var upload = multer({ storage: storage, fileFilter: imageFilter})
+
+const process = require('process')
+process.connect({
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
+
+var cloudinary = require('cloudinary');
+cloudinary.config({ 
+    cloud_name: 'dn3fbdr96', 
+    api_key: process.env.CLOUDINARY_API_KEY, 
+    api_secret: process.env.jyadeXc25GVt45zIVAqM7muhGy8
+});
 
 //index
 router.get("/", function(req, res) {
@@ -16,28 +47,40 @@ router.get("/", function(req, res) {
 });
 
 //CREATE
-router.post("/", middleware.isLoggedIn, function(req, res) {
-    //get data from form and add to campgrounds array
-    var name = req.body.name;
-    var oricos = req.body.oricos;
-    var image = req.body.image;
-    var description = req.body.description;
-    var author = {
-        id: req.user._id, 
-        username: req.user.username
-    }
-    var newCos = {name: name, oricos: oricos, image: image, description: description, author: author};
-    //create a new campground into the database
-    Cossite.create(newCos, function(err, newlyCreated) {
-        if(err) {
-            console.log(err);
-        } else {
-            //此处的campgrounds指的是var campgrounds = []建立的array
-            //campgrounds.push(newCampgrounds);//push a new campground to campgrounds array
-            
-            //redirect to the campgrounds page
-            res.redirect("/cossite");
+router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, res) {
+    // //get data from form and add to campgrounds array
+    // var name = req.body.name;
+    // var oricos = req.body.oricos;
+    // var image = req.body.image;
+    // var description = req.body.description;
+    // var author = {
+    //     id: req.user._id, 
+    //     username: req.user.username
+    // }
+    // var newCos = {name: name, oricos: oricos, image: image, description: description, author: author};
+    // //create a new campground into the database
+    // Cossite.create(newCos, function(err, newlyCreated) {
+    //     if(err) {
+    //         console.log(err);
+    //     } else {
+    //         res.redirect("/cossite");
+    //     }
+    // });
+    cloudinary.uploader.upload(req.file.path, function(result) {
+        // add cloudinary url for the image to the campground object under image property
+        req.body.cosimg.image = result.secure_url;
+        // add author to campground
+        req.body.cosimg.author = {
+            id: req.user._id,
+            username: req.user.username
         }
+        Cossite.create(req.body.cosimg, function(err, cosimg) {
+            if (err) {
+                req.flash('error', err.message);
+                return res.redirect('back');
+            }
+            res.redirect('/cossite/' + cosimg.id);
+        });
     });
 });
 
