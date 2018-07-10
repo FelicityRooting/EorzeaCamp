@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Cossite = require("../models/cossite");
 var middleware = require("../middleware/index.js");
-var request = require("request");
+// var request = require("request");
 // require('dotenv').config();
 
 var multer = require('multer');
@@ -21,17 +21,17 @@ var imageFilter = function (req, file, cb) {
 };
 var upload = multer({ storage: storage, fileFilter: imageFilter})
 
-const process = require('process')
-process.connect({
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
-})
+// const process = require('process')
+// process.connect({
+//     api_key: process.env.CLOUDINARY_API_KEY,
+//     api_secret: process.env.CLOUDINARY_API_SECRET
+// })
 
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
     cloud_name: 'dn3fbdr96', 
-    api_key: process.env.CLOUDINARY_API_KEY, 
-    api_secret: process.env.jyadeXc25GVt45zIVAqM7muhGy8
+    api_key: 547756892641856, 
+    api_secret: "jyadeXc25GVt45zIVAqM7muhGy8"
 });
 
 //index
