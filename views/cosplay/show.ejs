@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+<!--//for heroku-->
+<!--<div class="container">-->
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">
+                Cosplay
+            </p>
+            <div class="list-group">
+                <li class="list-group-item">Info1</li>
+                <li class="list-group-item">Info2</li>
+                <li class="list-group-item">Info3</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= cosimg.image %>">
+                <div class="caption-full">
+                    <!--这里pull-right在bootstrap 4.0里改成了float right-->
+                    <h4 class="pull-right">cos <%=cosimg.oricos%></h4>
+                    <h4><a href=""><%=cosimg.name%></a></h4>
+                    <p><%= cosimg.description %></p>
+                    <p>
+                        <em>Submitted by: <%= cosimg.author.username %>, <%= moment(cosimg.createdAt).fromNow() %></em>
+                    </p>
+                    <!--currentUser在app.js里-->
+                    <% if(currentUser && cosimg.author.id.equals(currentUser._id)) { %>
+                        <a class="btn btn-sm btn-warning" href="/cossite/<%= cosimg._id %>/edit">Edit</a>
+                        <form class="delete-form" action="/cossite/<%= cosimg._id %>/?_method=DELETE" method="POST">
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--</div>-->
+
+
+
+<% include ../partials/footer %>

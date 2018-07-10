@@ -2,6 +2,7 @@
 //start all
 var Campground = require("../models/campground");
 var Comments = require("../models/comments");
+var Cossite = require("../models/cossite");
 
 var middlewareObj = {}
 
@@ -59,6 +60,32 @@ middlewareObj.checkCommentsOwnership = function(req, res, next) {
     } else {
         req.flash("error", "you need to log in");
         //if not, redirect somewhere came before 
+        res.redirect("back");
+    }
+}
+
+middlewareObj.checkCosplay = function (req, res, next) {
+    //is user logged in ?(define our own middleware, so we're going to combine 
+    //that functionality instead of this middleware(即下面的isLoggedIn))
+    if(req.isAuthenticated()) {
+        Cossite.findById(req.params.id, function(err, foundCosplay) {
+            if(err) {
+                req.flash("error", "cosplay not found");
+                //if err, redirect somewhere came before
+                res.redirect("back");
+            } else {
+                if(foundCosplay.author.id.equals(req.user._id)) {
+                    next();//在update，edit，delete中有不同的执行
+                } else {
+                    req.flash("error", "you don't have permission to do that");
+                    //if not, redirect somewhere came before
+                    res.redirect("back");
+                }
+            }
+        });
+    } else {
+        //if not, redirect somewhere came before 
+        req.flash("error", "you need to log in first!");
         res.redirect("back");
     }
 }

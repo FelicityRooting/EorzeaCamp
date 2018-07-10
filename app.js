@@ -11,10 +11,12 @@ var flash = require("connect-flash");
 var Campground = require("./models/campground");//因为在campground.js里有module.export才能这样用
 var Comments = require("./models/comments");//同上
 var User = require("./models/user");
+var Cossite = require("./models/cossite");
 var seedDB = require("./seed");
 
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
+var cossiteRoutes = require("./routes/cossite");
 var indexRoutes = require("./routes/index");
 
 // for heroku
@@ -33,8 +35,8 @@ app.use(methodOverride("_method"));//我们需要为method-override提供一个k
 app.use(flash());
 
 
-// mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect("mongodb://Final:PbnTo4wt3chJKk@ds129811.mlab.com:29811/eorzeacamp");
+mongoose.connect("mongodb://localhost/yelp_camp");
+//mongoose.connect("mongodb://Final:PbnTo4wt3chJKk@ds129811.mlab.com:29811/eorzeacamp");
 
 //Run the seed file everytime the server start
 // seedDB(); //seed the database
@@ -96,7 +98,7 @@ var campgrounds = [
 app.use(indexRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
-
+app.use("/cossite", cossiteRoutes);
 
 //app.listen() 就是在给定的主机和端口上监听请求，这个和node中http模块的http.createServer(function(){...}).listen()效果一致；
 app.listen(process.env.PORT, process.env.IP, function() {

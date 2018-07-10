@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+<!--//for heroku-->
+<!--用row和container把内容框起来可以适应响应式布局和不会占据整个页面-->
+<body background=<%= cosimg.image %>>
+<div class="row">
+    <div class="container">
+        <h1 style="text-align: center;">EDIT <%= cosimg.name %></h1>
+        <!--让这个DIV的宽度为百分之30, margin为top是20px，其余的左右两边auto-->
+        <div style="width: 30%; margin: 20px auto">
+            <form action="/cossite/<%= cosimg._id %>/?_method=PUT" method="POST">
+                <!--form-group相当于段落标签,就是两个表单元素之间的间距变大了,即增加了margin-bottom-->
+                <div class="form-group">
+                <!--这里指向的是app.js里app.post("/campgrounds"), form-control控件，可以为input元素添加CSS定制样式-->
+                    <input class="form-control" type="text" value="<%= cosimg.name %>" name="cosimg[name]">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= cosimg.oricos %>" name="cosimg[oricos]">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= cosimg.image %>" name="cosimg[image]">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= cosimg.description %>" name="cosimg[description]">
+                </div>
+                <div class="form-group">
+                    <!--btn-block是块级按钮(拉伸至父元素100%的宽度)-->
+                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+        <a href="/cossite"><trong>Back to cosplay</strong></a>
+        </div>
+    </div>
+</div>
+</body>
+<% include ../partials/footer %>

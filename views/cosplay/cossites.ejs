@@ -14,6 +14,32 @@
             </p>
         </div>
     </header>
+    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+        <% cossites.forEach(function(cosimg) { %>
+        <!--col为medium占了3格-->
+            <div class="col-md-3 col-sm-6">
+                <!--thumbnail 在Bootstrap框架中真实含义：缩略图-->
+                <div class="thumbnail">
+                    <img src="<%= cosimg.image %>"> 
+                    <!--caption 元素定义表格标题。caption 标签必须紧随 table 标签之后。只能对每个表格定义一个标题。通常这个标题会被居中于表格之上。-->
+                    <div class="caption">
+                        <h4><%= cosimg.oricos %></h4>
+                    </div>
+                    <p>
+                        <a href="/cossite/<%= cosimg._id %>" class="btn btn-primary">More</a>
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <div class="container">
+        <h5>
+            Location data aggregated from the FFXIV community | Made by Felicity
+            <a href="https://github.com/FelicityRooting/EorzeaCamp">About Page &amp; Donate Link</a> | 
+            <!--Map powered by Leaflet.js-->
+            <!--FINAL FANTASY XIV © 2010 - 2018 SQUARE ENIX CO., LTD. All Rights Reserved.-->
+        </h5>
+    </div>
     
     
     </body>
