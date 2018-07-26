@@ -97,6 +97,7 @@ body {
 #keyframe1:hover {
     animation-name: background-color;
     animation-duration: 500ms;
+    animation-fill-mode: forwards;
 }
 
 @keyframes background-color {
