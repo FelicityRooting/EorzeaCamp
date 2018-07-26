@@ -27,7 +27,7 @@
                     <% if(currentUser && cosimg.author.id.equals(currentUser._id)) { %>
                         <a class="btn btn-sm btn-warning" href="/cossite/<%= cosimg._id %>/edit">Edit</a>
                         <form class="delete-form" action="/cossite/<%= cosimg._id %>/?_method=DELETE" method="POST">
-                            <button class="btn btn-sm btn-danger">Delete</button>
+                            <button class="btn btn-sm btn-danger" id="keyframe1">Delete</button>
                         </form>
                     <% } %>
                 </div>
