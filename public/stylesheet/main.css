@@ -36,6 +36,13 @@ body {
     color: #b3b5b1;
 }
 
+#back1 {
+    background: linear-gradient(
+      35deg,
+      #ccffff,
+      #ffcccc
+    );
+}
 
 
 .footer {
